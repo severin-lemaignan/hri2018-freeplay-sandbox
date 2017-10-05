@@ -122,14 +122,47 @@ future research.
 \section{The difficult evaluation of social interactions}
 \label{sec:intro}
 
-Evaluating in a rigorous manner human-robot social interactions is notoriously
-difficult~\cite{baxter2016characterising}: studies are either conducted in labs
-with constrained protocols to allow for robust measurements and a degree of
-replicability, but at the cost of ecological validity. Or on the contrary,
-studies are run \emph{in the wild}, which may provide better experimental
-realism, but often at the expense of rigorous interaction metrics and replicability.
+\subsection{Studying social interactions}
+
+Studying social interactions requires a social \emph{situation} that
+effectively elicits interactions between the participants. Such a situation is
+typically scaffolded by a social task, and consequently, the nature of this task
+influences in fundamental ways the kind of interactions that might be observed
+and analysed. In particular, the socio-cognitive tasks commonly found in the
+literature of experimental psychology (and HRI) often have a narrow focus:
+because they aim at studying one (or a few) specific social or cognitive skill
+in isolation and in a controlled manner, these tasks are typically simple and
+highly constrained (for instance, an object hand-over task; a perspective-taking
+task with cubes, etc.). While these focused endeavours are important and
+necessary, we -- as a community -- also acknowledge that these interaction
+scenarios do not reflect the complexity and dynamics of real-world
+interactions~\cite{baxter2016characterising}, and we certainly observe a strong
+trend within our community towards capturing, interpreting and acting upon the rich set of
+naturally-occurring social interactions.
+
+Specifically, we believe that further progress in the study of human-robot
+interactions should be scaffolded by socio-cognitive challenges that:
+
+\begin{itemize}
+    \item are long enough and varied enough to elicit a large range of
+        interaction situations;
+    \item foster rich multi-modal interaction, such as simultaneous speech, gesture, and gaze
+        behaviours;
+    \item are loosely directed, to maximise natural, non-contrived behaviours;
+    \item evidence complex social dynamics, such as rhythmic coupling, joint attention,
+        implicit turn-taking;
+    \item include a certain level of non-determinism and unpredictability.
+\end{itemize}
+
+The challenge lies in designing a social task that exhibits these features
+\emph{while maintaining `good' scientific properties} (repeatability, replicability,
+robust metrics) as well as good practical properties (not requiring unique or
+otherwise very costly experimental environments, not requiring very specific
+hardware or robotic platform, easy deployment, short enough experimental
+sessions to allow for large groups of participants).
 
 
+\subsection{Social play}
 
 
 Existing benchmarks (robocup at home) have issues -- the next challenge for HRI
@@ -146,38 +179,6 @@ experimental procedure associated to the free-play task, as well as the main
 analyses that can be conducted on the collected data (including a new annotation
 scheme for social interaction).
 
-\subsection{Studying social interactions}
-
-Studying social interactions requires a social situation that elicits
-interactions between the participants.  Such situation is typically scaffolded
-by a social task, and consequently, the nature of this task influences in
-fundamental ways the kind of interactions that might be observed and analysed.
-
-Because they typically target specific social or cognitive skills in a tightly
-controlled manner, traditional socio-cognitive tasks are usually simple,
-constrained tasks that do not reflect the complexity and dynamics of real-world
-interactions. Conversely, state-of-the-art human-robot interaction aims at
-capturing, interpreting and acting upon a rich set of
-naturally-occurring social interactions. As such, we argue that further advance
-in social human-robot interaction requires us to study and tackle tasks that:
-
-\begin{itemize}
-    \item are loosely directed, to maximise natural, non-contrived behaviours;
-    \item are long enough and varied enough to elicit a large range of
-        interaction situations;
-    \item foster rich multi-modal interaction, such as simultaneous speech, gesture, and gaze
-        behaviours;
-    \item evidence complex social dynamics, such as rhythmic coupling, joint attention,
-        implicit turn-taking, a level of unpredictability.
-\end{itemize}
-
-The challenge lies in designing a social task that exhibits these features,
-while maintaining `good' scientific properties (repeatability, replicability,
-robust metrics) as well as good practical properties (not requiring unique or
-otherwise very costly experimental environments, not requiring very specific
-hardware or robotic platform, easy deployment, short enough experimental
-sessions to allow for large groups of participants). So far, our community has
-struggled with this endeavour~\cite{baxter2016characterising}.
 
 children can engage in open-ended and
 non-directive play situations, yet sufficiently
