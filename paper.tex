@@ -161,75 +161,60 @@ otherwise very costly experimental environments, not requiring very specific
 hardware or robotic platform, easy deployment, short enough experimental
 sessions to allow for large groups of participants).
 
+We introduce in this paper such a task, designed to elicit rich, complex, varied
+social interactions while being well suited for interactions with robots and
+supporting rigorous scientific methodologies.
 
 \subsection{Social play}
 
+Our interaction paradigm is based on free and playful interactions (free play)
+in a \emph{sandboxed} environment: while the interaction is free (participants
+are not directed to perform any particular task beyond playing), the activity is
+both \emph{scaffolded} and \emph{constrained} by the setup mediating the
+interaction (essentially, a large table-top touchscreen).
+Participant engage in open-ended and non-directive play situations, yet sufficiently
+well defined to be reproducible and practical to record and analyse.
 
-Existing benchmarks (robocup at home) have issues -- the next challenge for HRI
-is to tackle complex, unpredictable situations -> free play
-
-
-This task is based on free child-robot interactions (free play) in a
-\emph{sandboxed} environment: while the interaction is free (children do not
-have a particular task to perform, except to play), the activity is scaffolded
-by a specific apparatus (a large touchscreen) where the interaction take place.
-Capturing the entirety of the interaction is consequently possible and
-practical. We present in the remaining of the paper the methodology and
-experimental procedure associated to the free-play task, as well as the main
-analyses that can be conducted on the collected data (including a new annotation
-scheme for social interaction).
-
-
-children can engage in open-ended and
-non-directive play situations, yet sufficiently
-defined to be reproducible; 
-
-
-\subsection{Background on social play}
+This initial description frames the socio-cognitive interactions that might be
+observed and studied: playful, dyadic, face-to-face interactions. While gestures
+and manipulations (including joint manipulations) play an important role in this
+paradigm, the participants do not typically move much during the interaction.
+Because it builds on play, this paradigm is also naturally suited to the study
+of child-child and child-robot interactions.
 
 The choice of a playful interaction is supported by the wealth of social
 situations and social behaviours that \emph{play} elicits. Most of the research
 in that field builds on the precursory work of Parten who established five
-\emph{stages of play}~\cite{parten1932social}:
+\emph{stages of play}~\cite{parten1932social}, corresponding to different stages
+of development, and accordingly associated to typical age ranges:
 
 \begin{enumerate}
-    \item {\bf Solitary (independent) play}: Playing separately from
+    \item {\bf Solitary (independent) play}, age 2-3: Playing separately from
         others, with no reference to what others are doing.
-    \item {\bf Onlooker play}: Watching others play. May engage in
+    \item {\bf Onlooker play}, age 2.5-3.5: Watching others play. May engage in
         conversation but not engaged in doing. True focus on the children at
         play.
-    \item {\bf Parallel play} (adjacent play, social co-action): Playing
+    \item {\bf Parallel play} (adjacent play, social co-action), age 2.5-3.5: Playing
         with similar objects, clearly beside others but not with them (near
         but not with others.)
-    \item {\bf Associative play}:  Playing with others without
+    \item {\bf Associative play}, age 3-4:  Playing with others without
         organization of play activity. Initiating or responding to
         interaction with peers. 
-    \item {\bf Cooperative play}: Coordinating one's behavior with that
+    \item {\bf Cooperative play}, age 4+: Coordinating one's behavior with that
         of a peer. Everyone has a role, with the emergence of a sense of
         belonging to a group. Beginning of "team work."
 \end{enumerate}
 
-\todo{Should the age be added?}
-
 These five stages of play have been extensively discussed and refined over the
-last century, yet remain remarkably widely accepted as such, and to the ears of
-researchers in social robotics, they may resonate as an implicit roadmap.
+last century, yet remain remarkably widely accepted as such. It must be noted
+that the age ranges are only indicative. In particular, most of the early
+behaviours still occur at times by older children.
+
+Interestingly, these five stages can been looked at from the perspective of HRI
+as well. They certainly evoke a roadmap for the development of human-robot
+social interactions.
 
 
-\subsection{Framing: face-to-face dyadic and sandboxed child-robot interactions}
-
-To mitigate the technical challenges presented by free play interactions in
-their most unconstrained version (like high dimensionality and uncertainties),
-we have developed a \emph{free play sandbox}, Figure~\ref{fig|freeplay}: a large
-touchscreen (60cm $\times$ 33cm) is used as an interactive surface
-(\emph{sandtray} paradigm~\cite{baxter2012touchscreen}). Two agents (either a
-pair of children or one child and one robot) play together by freely moving on a
-2D plane items (characters and blocks, see Figure~\ref{fig|sandbox}). A
-background image depicts a generic empty environment, with different symbolic
-zones (water, grass, path, bushes...). Additionally, the children can draw on
-the background using a tool applying a color on their touches. The players do
-not have any particular task to complete, they are simply invited to freely
-play.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -239,8 +224,31 @@ play.
 \label{sec:freeplay}
 
 \subsection{Task}
-description of the task and why it fills a gap in the literature/tools used so
-far (provide clearer,  and interesting setup, \emph{easy} to reuse)
+
+
+To mitigate the technical challenges presented by free play interactions in
+their most unconstrained version (like high dimensionality and uncertainties),
+we have developed a \emph{free-play sandbox}, Figure~\ref{fig|freeplay}: a large
+touchscreen (60cm $\times$ 33cm) is used as an interactive surface
+(\emph{sandtray} paradigm~\cite{baxter2012touchscreen}). Two participants (either a
+pair of children or one child and one robot) play together by freely moving on a
+2D plane items (characters and blocks, see Figure~\ref{fig|sandbox}). A
+background image depicts a generic empty environment, with different symbolic
+zones (water, grass, path, bushes...). Additionally, the children can draw on
+the background using a tool applying a color on their touches. The players do
+not have any particular task to complete, they are simply invited to freely
+play. Importantly, they can play for as long as they wish (for
+practical reasons, we have limited the sessions to a maximum of 40 minutes in
+our own experiments, see Section~\ref{sec:dataset}).
+
+Capturing all the interactions taking place during the play sessions is possible
+and practical with this setup. Even though the children will typically move a
+little, the task is fundamentally a face-to-face, spatially delimited,
+interaction, and as such simplifies the data collection. For instance, during
+our dataset acquisition campaign (120 children, more than 45h of footage), the
+children's faces were automatically detected in 97\% [TODO: check that!] of the
+recorded frames.
+
 
 \begin{figure}
     \centering
@@ -683,6 +691,7 @@ behaviour was coded to be purposefully \emph{asocial}: the robot would autonomou
 the game items, but would avoid any social interaction (no social gaze, no
 verbal interaction, no reaction to the child-initiated game actions).
 
+TODO: percentage faces seen?
 
 \begin{figure}
     \centering
