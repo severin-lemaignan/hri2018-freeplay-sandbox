@@ -404,24 +404,28 @@ Figure~\ref{fig|architecture} presents the software architecture of the sandbox.
     \label{fig|rviz}
 \end{figure}
 
-\subsection{Interactive game}
-The interactive game is coded using QML, and displays a main background image on
-top of which items (animals, humans and objects) can be moved. 
-The children can also use a drawing mode to
-create coloured strokes on a layer between the background and the items, which adds another layer of unconstrained interaction to the game
-(eg. Figure~\ref{fig|sandbox}. The game exposes the image of the background,
-the drawings, and the positions of the objects as a TF frame.
+\subsection{Interactive game} The interactive game
+(Fig.~\ref{fig|architecture}.1) is coded using QML, and displays a main
+background image on top of which items (animals, humans and objects) can be
+moved.  The children can also use a drawing mode to create coloured strokes on a
+layer between the background and the items, which adds another layer of
+unconstrained interaction to the game (eg. Figure~\ref{fig|sandbox}. The game
+exposes the image of the background, the drawings, and the positions of the
+objects as a TF frame.
 
-\subsection{Sensors}
-Two RGB-D cameras are mounted at fixed positions on the Sandtray frame, each facing a child. This fixed position of the cameras allows the extraction of social features 
-such as head pose, eye gaze, pointing and body posture, all described in a general
-coordinate system available to each software node. In addition to the image, the cameras
-posses a microphone to record the auditory aspect of the interaction.
+\subsection{Sensors} Two RGB-D cameras are mounted at fixed positions on the
+Sandtray frame, each facing a child. This fixed position of the cameras allows
+the extraction of social features such as head pose, eye gaze, pointing and body
+posture, all described in a general coordinate system available to each software
+node. In addition to the image, the cameras posses a microphone to record the
+auditory aspect of the interaction. One node per camera
+(Fig.~\ref{fig|architecture}.2) outputs on dedicated topics the audio and video
+streams.
 
 \todo{briefly present ROS pipeline for sensors}
 
-\subsection{Robot Control}
-As stated in section~\ref{ssec|CRI}, a robot can act as play partner instead of one of the
+\subsection{Robot Control} As stated in section~\ref{ssec|CRI}, a robot
+(Fig.~\ref{fig|architecture}.9) can act as play partner instead of one of the
 children. This robot can either be autonomous selecting actions based on the
 inputs provided by the sensors and the game or be controlled by a human in a
 Wizard of Oz fashion.
@@ -429,25 +433,29 @@ Wizard of Oz fashion.
 \paragraph{Autonomous} The current implementation exposes a large number of
 information on the game and the state of the child that can be used in the robot
 controller. The position of every item is exposed as a TF frame, the background
-is segmented in zones of identical colors, social element of the state the
-interaction are collected through the RGBD camera and the microphone facing the
-child. As visible on Figures~\ref{fig|freeplay} and \ref{fig|rviz}, the camera
-covers the head of the child as well as most of the upperbody, and applying
-libraries such as DLib and OpenPose, the position of facial feature and skeleton
-of the child are extracted and can be used to obtain: head gaze, gaze and
-gestures such as pointing. All these inputs can be combined to provide the robot
-with more social inputs to test the sociability of a robotic controller and its
-impact on the interaction.
+is segmented in zones of identical colors (Fig.~\ref{fig|architecture}.5),
+social element of the state the interaction are collected through the RGBD
+camera and the microphone facing the child. As visible on
+Figures~\ref{fig|freeplay} and~\ref{fig|rviz}, the camera covers the head of the
+child as well as most of the upperbody, and applying libraries such as DLib and
+OpenPose, the position of facial feature and skeleton of the child are extracted
+and can be used to obtain: head gaze, gaze and gestures such as pointing. All
+these inputs can be combined to provide the robot with more social inputs to
+test the sociability of a robotic controller (Fig.~\ref{fig|architecture}.3) and
+its impact on the interaction.
 
 The robot's location is obtained by displaying fiducial markers on the
 touchscreen before the start of the interaction, so the transformation between
-the robot coordinate system and the touchscreen is known. And this robot
-location can also be used to identify gazes from the child to the robot. 
+the robot coordinate system and the touchscreen is known
+(Fig.~\ref{fig|architecture}.13). And this robot location can also be used to
+identify gazes from the child to the robot. 
 
 To make the children believe the robot is moving objects on the touchscreen, we
-synchronise a moving pointing gesture of the robot and a series of fake touches
-appied on the screen, moving the desired object. Once an object and a goal
-position have been selected, a planner generate a path for this image using the
+synchronise a moving pointing gesture of the robot
+(Fig.~\ref{fig|architecture}.4) and a series of fake touches
+(Fig.~\ref{fig|architecture}.8) appied on the screen, moving the desired object.
+Once an object and a goal position have been selected, a planner
+(Fig.~\ref{fig|architecture}.6) generate a path for this image using the
 A\mbox{*} algorithm on an occupancy map obtained with the items footprints, then
 this plan is sent to a nodes synchronising the actuation on the robot and the
 fake touches on the game.
@@ -455,22 +463,23 @@ fake touches on the game.
 Other actions such as gaze, pointing or speech are also exposed as simple ROS
 topics.
 
-\paragraph{Wizard-of-Oz} To allow an experimenter to control the robot, a GUI to control the robot is
-provided and presents an identical representation of the state of the game on an
-other application which can be used on a tablet for example. The wizard can drag
-the objects in a similar fashion as what the child would do on the Sandtray, and
-on the release, the robot executes the dragging motion on the Sandtray, moving
-an object to a new location. The source code can easily modify to add new
-specific buttons to execute other actions, such as having the robot talk to the
-child.
+\paragraph{Wizard-of-Oz} To allow an experimenter to control the robot, a GUI to
+control the robot (Fig.~\ref{fig|architecture}.11) is provided and presents an
+identical representation of the state of the game on an other application which
+can be used on a tablet for example. The wizard can drag the objects in a
+similar fashion as what the child would do on the Sandtray, and on the release,
+the robot executes the dragging motion on the Sandtray, moving an object to a
+new location. The source code can easily modify to add new specific buttons to
+execute other actions, such as having the robot talk to the child.
 
 \todo{Should I add more in the WoZ GUI in the code side? It's fairly simple in the
 current implementation}
 
 \subsection{Experiment Manager}
 
-A web interface can be used by the experimenter to manage the meta parameters of
-the interaction: log data on the subjects, start-stop, select a task, manage data recording...
+A web interface (Fig.~\ref{fig|architecture}.10) can be used by the experimenter
+to manage the meta parameters of the interaction: log data on the subjects,
+start-stop, select a task, manage data recording...
 
 
 %
