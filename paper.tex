@@ -408,24 +408,22 @@ Figure~\ref{fig|architecture} presents the software architecture of the sandbox.
 The interactive game is coded using QML, and displays a main background image on
 top of which items (animals, humans and objects) can be moved. 
 The children can also use a drawing mode to
-create coloured strokes on a layer between the background and the items. This
-increases the openess of the game as symbolic objects can be added by drawing
-(eg. Figure~\ref{fig|sandbox}. The game exposes the image of the background
-with the drawing in case of change and the positions of each item as a TF frame.
+create coloured strokes on a layer between the background and the items, which adds another layer of unconstrained interaction to the game
+(eg. Figure~\ref{fig|sandbox}. The game exposes the image of the background,
+the drawings, and the positions of the objects as a TF frame.
 
 \subsection{Sensors}
-Two RGB-D cameras have a fixed position on the Sandtray frame and face one child
-each. This fixed position of the cameras permit to extract social features from
-the images such as head gaze, gaze, pointing and position in a general
-coordinate system usable by each node. In addition of the image, the cameras
-posses a microphone to listen and record what the children are saying.
+Two RGB-D cameras are mounted at fixed positions on the Sandtray frame, each facing a child. This fixed position of the cameras allows the extraction of social features 
+such as head pose, eye gaze, pointing and body posture, all described in a general
+coordinate system available to each software node. In addition to the image, the cameras
+posses a microphone to record the auditory aspect of the interaction.
 
 \subsection{Supervisor}
-A web interface can be used by an experimenter to manage the meta parameters of
-the interaction: demographics, start-stop, task selected, recording...
+A web interface can be used by the experimenter to manage the meta parameters of
+the interaction: log data on the subjects, start-stop, select a task, manage data recording...
 
 \subsection{Robot Control}
-As stated in section~\ref{ssec|CRI}, a robot can interact in place of one of the
+As stated in section~\ref{ssec|CRI}, a robot can act as play partner instead of one of the
 children. This robot can either be autonomous selecting actions based on the
 inputs provided by the sensors and the game or be controlled by a human in a
 Wizard of Oz fashion.
