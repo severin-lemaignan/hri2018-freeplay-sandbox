@@ -119,6 +119,21 @@ future research.
 
 \maketitle
 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\columnwidth]{setup_top}
+    %\hspace{1em}
+    %\includegraphics[width=0.45\columnwidth]{setup_child_robot_top}
+    %\includegraphics[width=0.45\columnwidth]{child-child-env}
+    \caption{The free-play social interactions sandbox: two children interact in
+    a free-play situation, by drawing and manipulating items on a touchscreen.
+    Children are facing each other and sit on cushions. Each child wears a
+    bright sports bib, either purple or yellow, to facilitate later
+    identification.}
+
+    \label{fig|freeplay}
+\end{figure}
+
 \section{The challenges in evaluating social interactions}
 \label{sec:intro}
 
@@ -251,21 +266,6 @@ children's faces were automatically detected in 97\% \textcolor{red}{[TODO: chec
 recorded frames.
 
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.9\columnwidth]{setup_top}
-    %\hspace{1em}
-    %\includegraphics[width=0.45\columnwidth]{setup_child_robot_top}
-    %\includegraphics[width=0.45\columnwidth]{child-child-env}
-    \caption{The free-play social interactions sandbox: two children interact in
-    a free-play situation, by drawing and manipulating items on a touchscreen.
-    Children are facing each other and sit on cushions. Each child wears a
-    bright sports bib, either purple or yellow, to facilitate later
-    identification.}
-
-    \label{fig|freeplay}
-\end{figure}
-
 
 \begin{figure}[ht!]
     \centering
@@ -363,7 +363,7 @@ From the information collected on the children, social behaviours can be extract
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Technical Implementation}
+\section{Task Implementation}
 \label{sec:impl}
 
 The sandbox is implemented using mainly two frameworks: Qt's QML and
@@ -418,9 +418,7 @@ such as head pose, eye gaze, pointing and body posture, all described in a gener
 coordinate system available to each software node. In addition to the image, the cameras
 posses a microphone to record the auditory aspect of the interaction.
 
-\subsection{Supervisor}
-A web interface can be used by the experimenter to manage the meta parameters of
-the interaction: log data on the subjects, start-stop, select a task, manage data recording...
+\todo{briefly present ROS pipeline for sensors}
 
 \subsection{Robot Control}
 As stated in section~\ref{ssec|CRI}, a robot can act as play partner instead of one of the
@@ -469,11 +467,11 @@ child.
 \todo{Should I add more in the WoZ GUI in the code side? It's fairly simple in the
 current implementation}
 
-\subsection{Records and logs}
+\subsection{Experiment Manager}
 
-Maybe redundant with Data  collection.
+A web interface can be used by the experimenter to manage the meta parameters of
+the interaction: log data on the subjects, start-stop, select a task, manage data recording...
 
-\subsection{Tools}
 
 %
 %\begin{figure}[h!]
@@ -537,6 +535,10 @@ reusing the free-play sandbox task for their own research would naturally adapt
 and extend these protocols to their own needs. Besides, certain aspects (most
 notably, the audio processing) are yet to be properly investigated.
 
+\subsection{Protocol}
+
+\todo{TBD}
+
 \subsection{Data collection}
 
 Table~\ref{table|datastreams} lists the datastreams that are collected during
@@ -575,8 +577,7 @@ touchscreen & background drawing (RGB)               \\
 \end{table}
 
 
-
-\subsection{RGB-D streams analysis}
+\subsection{Data processing}
 
 \paragraph{Face and body pose analysis}
 
@@ -588,7 +589,7 @@ this landmarks can be mapped to high level behaviours such as poiting or looking
 at an object. Additional analysis can be done on the facial landmarks to other
 social states, such as main emotion felt by the child.
 
-\subsection{Audio processing}
+\paragraph{Audio processing}
 
 Similar processing can be applied on the audio stream. Library such as OpenSMILE
 provide audio features such as pitch and loudness contour, which inform on the
@@ -598,7 +599,9 @@ As of today, no reliable Speech Recognition Engine exists for
 children~\cite{kennedy2017child}, but in the future, the audio should provide
 textual information on the requests and comments produced by the child.
 
-\subsection{Game interactions analysis}
+\paragraph{Game interactions analysis}
+
+\todo{check section title}
 
 Game features are also produced by the different nodes involved in the analaysis
 of the game. The Playground segmentation produce a map of the regions based on
@@ -639,6 +642,8 @@ encode attitudes like \emph{supportive}, \emph{aggressive}, \emph{dominant},
 \paragraph{Social engagement: Parten's stages of play at micro-level}
 
 \subsection{Video Coding}
+
+\todo{Mention the annotator tool}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
