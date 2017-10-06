@@ -46,7 +46,7 @@
 \newcommand{\cf}{cf.\xspace}
 
 
-\title{The Freeplay Sandbox: a Novel Methodology for the Evaluation of Social Robotics}
+\title{The Free-play Sandbox: a Novel Methodology for the Evaluation of Social Robotics}
 
 %\author{\IEEEauthorblockN{Séverin Lemaignan, Emmanuel Senft, Tony Belpaeme}
 %\IEEEauthorblockA{
@@ -324,13 +324,13 @@ address all of the tasks.
 
 \paragraph{Child-Child Interaction}
 
-The Freeplay Sandbox provides the opportunity to observe children interacting in a natural way in an open but framed setup. As the system can run on a single computer platform it can easily be deployed in the 'wild', in places where the children naturally interact such as classroom. The quantity and thoughtfulness of information logged allows to keep a track of every interaction happening around the game. 
+The Free-play Sandbox provides the opportunity to observe children interacting in a natural way in an open but framed setup. As the system can run on a single computer platform it can easily be deployed in the 'wild', in places where the children naturally interact such as classroom. The quantity and thoughtfulness of information logged allows to keep a track of every interaction happening around the game. 
 
 These advantages combined with the openness of the task proposed make this setup a powerful tool to observe and quantify a large spectrum of social behaviours expressed by children when interacting in a natural environment (might be interesting to add a list here). The compactness of the system makes it easy to compare data from different locations.
 
 \paragraph{Child-Robot Interaction}
 \label{ssec|CRI}
-This Freeplay Sandbox provides the opportunity to explore child-robot
+This Free-play Sandbox provides the opportunity to explore child-robot
 interactions in this open-real world environment as shown in Figure
 \ref{fig|freeplay}. 
 
@@ -579,7 +579,7 @@ message, and sits down. \\
 \bf Tutorial \emph{(1-2 min)}  \\
 explain how to interact with the game, ensure the children are confident
 with the manipulation/drawing \\ \midrule
-\bf Freeplay task (up to 40 min)\\
+\bf Free-play task (up to 40 min)\\
 \tabitem initial prompt: \emph{"Just to remind you, you can use the animals or draw. Whatever you
 like. If you run out of ideas, there's also an ideas box. For example, the first one is a
 zoo. You could draw a zoo or tell a story. When you get bored or don't want to play
@@ -670,10 +670,10 @@ used to infer the child's goal or desire.
 \label{sec|coding-scheme}
 
 Annotating social interaction beyond surface behaviours is generally difficult:
-as research scientists, the behaviours we observe are typically the result of a
-superposition of complex and non-observable cognitive and emotional states. As
-such, these interesting socio-cognitive states can only be indirectly observed,
-and their labelling is error prone [TODO: citation needed].
+The observable, surface behaviours typically result of a superposition of the
+complex and non-observable underlying cognitive and emotional states. As
+such, these deeper socio-cognitive states can only be indirectly observed,
+and their labelling is typically error prone.
 
 Our aim is to provide insights on the social dynamics, and we have synthesised a
 new coding scheme for social interactions that reuse and adapt three established
@@ -684,6 +684,10 @@ sometimes highly social -- behaviours); the level of social engagement (reusing
 Parten's stages of play, but at the micro-task level); the social attitude (that
 encode attitudes like \emph{supportive}, \emph{aggressive}, \emph{dominant},
 \emph{annoyed}, etc.)
+
+
+
+
 
 \begin{figure}
     \centering
@@ -696,9 +700,58 @@ encode attitudes like \emph{supportive}, \emph{aggressive}, \emph{dominant},
 
 \paragraph{Social engagement: Parten's stages of play at micro-level}
 
-\subsection{Video Coding}
+In our scheme, we characterise \emph{Social engagement} by building upon
+Parten's stages of play. These 5 stages of play are normally
+used to characterise rather long sequences (at least several minutes) of social
+interactions.
 
-\todo{Mention the annotator tool}
+However, instead of characterising long social
+sequences (several minutes) with these 5 stages, we look at the micro-structure of the
+interaction:
+
+\paragraph{Social attitude}
+
+The constructs related to the social \emph{attitude} of the children derive from the
+\emph{Social Communication Coding System} (SCCS) proposed by
+Olswang~\etal\cite{olswang2006reliability}.  The SCCS consists in 6 mutually
+exclusive constructs characterising social communication (\emph{hostile};
+\emph{pro-social}; \emph{assertive}; \emph{passive}; \emph{adult seeking};
+\emph{irrelevant}) and were specifically created to characterise children
+communication in a classroom setting.
+
+We transpose these constructs from the communication domain to the general
+behavioural domain, keeping the \emph{pro-social}, \emph{hostile} (whose scope
+we broaden in \emph{adversarial}), \emph{assertive} (\ie dominant), and
+\emph{passive} constructs. In our scheme, the \emph{adult seeking} and
+\emph{irrelevant} constructs belong to Task Engagement axis.
+
+Finally, we have added the construct \emph{Frustrated} to describe children who
+are reluctant or refuse to engage in a specific phase of interaction
+because of a perceived lack of fairness or attention from their peer, or because
+they fail at achieving a particular task (like a drawing).
+
+\paragraph{Video coding}
+
+The coding is performed post-hoc with the help of a dedicated annotation tool
+(Fig.~\ref{annotator} which is part of the Free-play sandbox toolbox. This tool
+can replay and randomly seek in the three video streams, synchronised with the
+recorded state of the game (including the drawings as they are created). An
+interactive timeline displaying the annotations is also displayed.
+
+The annotation tool offers a remote interface for the annotator (made of large
+buttons, and visually similar to Figure~\ref{fig|coding-scheme}) that is
+typically displayed on a tablet and allow the simultaneous coding of the
+behaviours of the two children.  Usual video coding practices (double-coding of
+a portion of the dataset and calculation of an inter-judge agreement score)
+would have to be followed.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\columnwidth]{annotator}
+    \caption{Screenshot of the dedicated tool developed for rapid annotation of
+    the social interactions.}
+    \label{annotator}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -707,14 +760,14 @@ encode attitudes like \emph{supportive}, \emph{aggressive}, \emph{dominant},
 \section{Baseline Datasets}
 \label{sec:dataset}
 
-We have been using the Freeplay Sandbox task for an initial, large scale, data
+We have been using the free-play Sandbox task for an initial, large scale, data
 collection over a period of 3 months during Spring 2017.
 
 This campaign aimed at (1) extensively evaluating the task itself (would
 children engage and exhibit a large range of social dynamics and behaviours?),
 (2) making sure the whole software architecture and data acquisition pipeline
 were reliable (they were), and (3) establishing two experimental baselines for
-the Freeplay Sandbox task: the `human' baseline on one hand (child-child
+the Free-play Sandbox task: the `human' baseline on one hand (child-child
 condition), an `asocial' baseline on the other hand (child - \emph{non-social}
 robot condition). These two baselines are situated at the two ends of the
 spectrum of social interaction. They aim at characterising the qualitative and
@@ -734,7 +787,7 @@ conditions: a child-child condition and a child-robot condition. In both
 condition, and after a short tutorial, the children were simply invited to
 freely play with the sandbox, for as long as they wished (with a cap at 40 min).
 
-In the child-child condition (as seen in Figure~\ref{annotator}), 45 freeplay interactions (\ie 90 children) were
+In the child-child condition (as seen in Figure~\ref{annotator}), 45 free-play interactions (\ie 90 children) were
 recorded with a duration M=24.15 min (SD=11.25 min).
 
 In the child-robot condition, 30 children were recorded, M=19.18 min (SD=10
@@ -744,14 +797,6 @@ the game items, but would avoid any social interaction (no social gaze, no
 verbal interaction, no reaction to the child-initiated game actions).
 
 TODO: percentage faces seen?
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\columnwidth]{annotator}
-    \caption{Screenshot of the dedicated tool developed for rapid annotation of
-    the social interactions.}
-    \label{annotator}
-\end{figure}
 
 \begin{figure}
     \centering
