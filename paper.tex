@@ -395,12 +395,12 @@ Figure~\ref{fig|architecture} presents the software architecture of the sandbox.
 \begin{figure}
     \centering
     \includegraphics[width=\linewidth]{rviz-sandtray}
-    \caption{The free-play sandbox, viewed at runtime within ROS RViz. The
-    current background drawing (bottom left) is published on a regular image
-    topic. Simple computer vision is used to segment it into zones (visible in
-    the central panel). The poses and bounding boxes of the interactive items
-    are published as well, and turned into an occupancy map, used to plan the
-    robot's arm motion.}
+    \caption{The free-play sandbox, viewed at runtime within ROS RViz. Simple
+    computer vision is used to segment the background drawings into zones
+    (visible on the right panel). The poses and bounding boxes of the
+    interactive items are published as well, and turned into an occupancy map,
+    used to plan the robot's arm motion.} 
+
     \label{fig|rviz}
 \end{figure}
 
