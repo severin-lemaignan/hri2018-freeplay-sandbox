@@ -524,20 +524,66 @@ the interaction: log data on the subjects, start-stop, select a task, manage dat
 
 The section presents \emph{canonical} procedures to acquire data during testing,
 to pre-process it, and analyse it. We call them \emph{canonical} because they
-are either well integrated into the software pipeline of the sandbox (\eg ROS
-integration), represent start-of-the-art techniques, or result from the 
-synthesis of existing techniques (this is especially true of the coding scheme
-that we introduce for the annotation of social behaviours,
-Section~\ref{sec|coding-scheme} below).
+are standard procedures, and where relevant, well integrated into the software pipeline of the sandbox (\eg ROS
+integration) and represent state-of-the-art techniques. For the specific purpose
+of manually annotating the social interaction, we introduce as well a novel
+coding scheme, resulting from the synthesis of several existing techniques
+(Section~\ref{sec|coding-scheme} below).
 
-However, they do not represent normative procedures. Researchers interested in
+However, these procedure are not normative. Researchers interested in
 reusing the free-play sandbox task for their own research would naturally adapt
 and extend these protocols to their own needs. Besides, certain aspects (most
 notably, the audio processing) are yet to be properly investigated.
 
 \subsection{Protocol}
 
-\todo{TBD}
+We typically adhere to the acquisition procedure described in
+Table~\ref{tab|protocal} with all participants.  To ease later identification,
+each child is also given a different and brightly coloured sports bib to wear.
+
+Importantly, during the \emph{Greetings} stage, we show the robot both moving and
+speaking (for instance, ``Hello, I'm Nao. Today I'll be playing with you.
+Exciting!'' while waving at the children). This is meant to set the children's
+expectations: they have seen that the robot can speak, move, and even behave in
+a social way.
+
+Also, the game interface of the free-play sandbox offers a tutorial mode, used
+to ensure the children know how to manipulate items on a touchscreen and draw.
+In our experience, this has never been an issue for children.
+
+
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+
+\begin{table}[!]
+\caption{Data acquisition protocol}
+    \label{tab|protocol}
+\centering
+\begin{tabular}{p{\linewidth}}
+\toprule
+\bf Greetings \emph{(about 5 min)} \\
+\tabitem explain the purpose of the study: showing robots how children play  \\
+\tabitem briefly present a Nao robot: the robot stands up, gives a short
+message, and sits down. \\
+\tabitem place children on cushions \\ 
+\tabitem complete demographics on the tablet \\
+\tabitem remind the children that they can withdraw at anytime \\ \midrule
+\bf Tutorial \emph{(1-2 min)}  \\
+explain how to interact with the game, ensure the children are confident
+with the manipulation/drawing \\ \midrule
+\bf Freeplay task (up to 40 min)\\
+\tabitem initial prompt: \emph{"Just to remind you, you can use the animals or draw. Whatever you
+like. If you run out of ideas, there's also an ideas box. For example, the first one is a
+zoo. You could draw a zoo or tell a story. When you get bored or don't want to play
+anymore, just let me know."} \\
+\tabitem let children play \\
+\tabitem once they wish to stop, stop recording \\ \midrule
+\bf Debriefing      \emph{(about 2 min)} \\
+\tabitem answer possible questions from the children \\
+\tabitem give small reward (\eg stickers) as a thank you \\ \bottomrule
+\end{tabular}
+\end{table}
+
+
 
 \subsection{Data collection}
 
