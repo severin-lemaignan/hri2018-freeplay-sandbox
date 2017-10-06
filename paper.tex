@@ -161,7 +161,7 @@ otherwise very costly experimental environments, not requiring very specific
 hardware or robotic platform, easy deployment, short enough experimental
 sessions to allow for large groups of participants).
 
-We introduce in this paper such a task, designed to elicit rich, complex, varied
+In this paper, we introduce such a task, designed to elicit rich, complex, varied
 social interactions while being well suited for interactions with robots and
 supporting rigorous scientific methodologies.
 
@@ -184,15 +184,15 @@ of child-child and child-robot interactions.
 
 The choice of a playful interaction is supported by the wealth of social
 situations and social behaviours that \emph{play} elicits. Most of the research
-in that field builds on the precursory work of Parten who established five
+in this field builds on the early work of Parten who established five
 \emph{stages of play}~\cite{parten1932social}, corresponding to different stages
-of development, and accordingly associated to typical age ranges:
+of development, and accordingly associated with typical age ranges:
 
 \begin{enumerate}
     \item {\bf Solitary (independent) play}, age 2-3: Playing separately from
         others, with no reference to what others are doing.
     \item {\bf Onlooker play}, age 2.5-3.5: Watching others play. May engage in
-        conversation but not engaged in doing. True focus on the children at
+        conversation but not engage in doing. True focus on the children at
         play.
     \item {\bf Parallel play} (adjacent play, social co-action), age 2.5-3.5: Playing
         with similar objects, clearly beside others but not with them (near
@@ -225,17 +225,18 @@ social interactions.
 
 \subsection{Task}
 
+We have designed a new experimental task, called the \emph{free-play sandbox},
+that is based on free play interactions. Pairs of children (4-8 years old) are
+invited to freely draw and interact with items displayed on an interactive
+table, without any explicit goal set by the experimenter
+(Fig.~\ref{fig|freeplay}).  The task is designed so that children can engage in
+open-ended and non-directive play, yet it is sufficiently constrained to be
+suitable for recording, and allows the reproduction of social behaviour by an
+artificial agent in comparable conditions.
 
-To mitigate the technical challenges presented by free play interactions in
-their most unconstrained version (like high dimensionality and uncertainties),
-we have developed a \emph{free-play sandbox}, Figure~\ref{fig|freeplay}: a large
-touchscreen (60cm $\times$ 33cm) is used as an interactive surface
-(\emph{sandtray} paradigm~\cite{baxter2012touchscreen}). Two participants (either a
-pair of children or one child and one robot) play together by freely moving on a
-2D plane items (characters and blocks, see Figure~\ref{fig|sandbox}). A
-background image depicts a generic empty environment, with different symbolic
-zones (water, grass, path, bushes...). Additionally, the children can draw on
-the background using a tool applying a color on their touches. The players do
+The background image depicts a contextual environment, with different 
+zones (for example, water, grass, path, bushes...). Additionally, the children can draw on
+the background using a tool of the colour is costumisable. The players do
 not have any particular task to complete, they are simply invited to freely
 play. Importantly, they can play for as long as they wish (for
 practical reasons, we have limited the sessions to a maximum of 40 minutes in
@@ -246,7 +247,7 @@ and practical with this setup. Even though the children will typically move a
 little, the task is fundamentally a face-to-face, spatially delimited,
 interaction, and as such simplifies the data collection. For instance, during
 our dataset acquisition campaign (120 children, more than 45h of footage), the
-children's faces were automatically detected in 97\% [TODO: check that!] of the
+children's faces were automatically detected in 97\% \textcolor{red}{[TODO: check that!]} of the
 recorded frames.
 
 
@@ -266,15 +267,6 @@ recorded frames.
 \end{figure}
 
 
-We have designed a new experimental task, called the \emph{free-play sandbox},
-that is based on free play interactions. Pairs of children (4-8 years old) are
-invited to freely draw and interact with items displayed on an interactive
-table, without any explicit goal set by the experimenter
-(Fig.~\ref{fig|freeplay}).  The task is designed so that children can engage in
-open-ended and non-directive play, yet it is sufficiently constrained to be
-suitable for recording, and allows the reproduction of social behaviour by an
-artificial agent in comparable conditions.
-
 \begin{figure}[ht!]
     \centering
     \includegraphics[width=0.9\columnwidth]{sandbox}
@@ -285,28 +277,31 @@ artificial agent in comparable conditions.
     \label{fig|sandbox}
 \end{figure}
 
-The free-play sandbox follows the sandtray
-paradigm~\cite{baxter2012touchscreen}: a large touchscreen (60cm $\times$ 33cm,
-with multitouch support) is used as an interactive surface (\emph{sandtray}).
-Two children play together by freely moving interactive items
-(Fig.~\ref{fig|sandbox}) on the surface. A background image depicts a generic
-empty environment, with different symbolic colours (water, grass, beach,
-bushes...). By drawing on top of the background picture, the children can change
-the environment to their liking. The players do not have any particular task to
-complete, they are simply invited to freely play for as long as they want.
+% TB: ALSO EXPLAINED ABOVE, THIS PARAGRAPH IS REDUNDANT
+%
+% The free-play sandbox follows the sandtray
+% paradigm~\cite{baxter2012touchscreen}: a large touchscreen (60cm $\times$ 33cm,
+% with multitouch support) is used as an interactive surface (\emph{sandtray}).
+% Two children play together by freely moving interactive items
+% (Fig.~\ref{fig|sandbox}) on the surface. A background image depicts a generic
+% empty environment, with different symbolic colours (water, grass, beach,
+% bushes...). By drawing on top of the background picture, the children can change
+% the environment to their liking. The players do not have any particular task to
+% complete, they are simply invited to freely play for as long as they want.
 
-\todo{almost identical to 1.3 and mention dataset}
-
-In order to constrain the dataset to a tractable domain, the task is limited to
-a dyadic face-to-face interaction.  The resulting interaction space is
-nevertheless high-dimensional, with two main foci: the game-related actions
-(drawing, manipulating items, telling stories) and the social interactions
-(monitoring the other's actions, discussing and agreeing on joint actions,
-supportive/antagonistic behaviours, etc.).
-
+% TB: ALSO EXPLAINED ABOVE, THIS PARAGRAPH IS REDUNDANT
+%
+% \todo{almost identical to 1.3 and mention dataset}
+% In order to constrain the dataset to a tractable domain, the task is limited to
+% a dyadic face-to-face interaction.  The resulting interaction space is
+% nevertheless high-dimensional, with two main foci: the game-related actions
+% (drawing, manipulating items, telling stories) and the social interactions
+% (monitoring the other's actions, discussing and agreeing on joint actions,
+% supportive/antagonistic behaviours, etc.).
 
 \paragraph{Socio-cognitive framing of the task}
 
+\todo{Very much unfinished section.}
 focus on abstract socio-cognitive facets (robot
 perception and manipulation are simplified); well suited for qualitative and
 quantitative analysis using metrics like Słowinski’s Individual Motor Signature
@@ -343,11 +338,11 @@ Depending of the focus of the study, two modes of control for the robot are
 available. If the interest is on evaluating a specific robot behaviour, the
 robot can be autonomously controlled using inputs from the different sensors.
 This setup allows to explore the impact of different social behaviours on the
-children independently of the 'game policy' controlling by the robot. 
+children independently of the `game policy' controlling by the robot. 
 
 On the other hand, if the focus is on the child behaviour and the technical
 aspect is of a lower importance, the robot can be controlled by a human rather
-than an algorithm. This paradigm, where a human teleoperate a robot to interact
+than an algorithm. This paradigm, where the robot is tele-operated to interact
 with a naive partner is called Wizard of Oz (WoZ) and is used in numerous
 studies to explore the psychologic side of HRI \cite{riek2012wizard}. 
 
@@ -386,7 +381,7 @@ Figure~\ref{fig|architecture} presents the software architecture of the sandbox.
     \centering
     \includegraphics[width=\linewidth]{freeplay-sandbox-architecture}
     \caption{Software architecture of the free-play sandbox. Left (purple) nodes
-    are tided to the sandtray (game interface (1) and camera drivers (2)). Nodes in the
+    are connected to the sandtray (game interface (1) and camera drivers (2)). Nodes in the
     centre (green) implement the behaviour of the robot (play policy (3) and robot
     behaviours (4)). Several helper nodes are available, in particular, segmentation of the
     children drawings into zones (5), A* motion planning for the robot to move
@@ -405,17 +400,16 @@ Figure~\ref{fig|architecture} presents the software architecture of the sandbox.
     topic. Simple computer vision is used to segment it into zones (visible in
     the central panel). The poses and bounding boxes of the interactive items
     are published as well, and turned into an occupancy map, used to plan the
-    robot's arm motion.
-    visualisation tool.}
+    robot's arm motion.}
     \label{fig|rviz}
 \end{figure}
 
 \subsection{Interactive game}
-The interactive game is coded using QML, and possess main background image on
-top of which items (animals, humans and objects) can be moved from one part of
-the world to another. The children can also use a drawing mode in which some
-create strokes of color on a layer between the background and the items. This
-increase the openess of the game as symbolic objects can be added by drawing
+The interactive game is coded using QML, and displays a main background image on
+top of which items (animals, humans and objects) can be moved. 
+The children can also use a drawing mode to
+create coloured strokes on a layer between the background and the items. This
+increases the openess of the game as symbolic objects can be added by drawing
 (eg. Figure~\ref{fig|sandbox}. The game exposes the image of the background
 with the drawing in case of change and the positions of each item as a TF frame.
 
@@ -841,8 +835,9 @@ raise important questions for social robotics.
 
 \section*{Acknowledgments}
 
-This work has been supported by the EU H2020 Marie Sklodowska-Curie Actions
-project DoRoThy (grant 657227).
+Redacted for anonymous review.
+%This work has been supported by the EU H2020 Marie Sklodowska-Curie Actions
+%project DoRoThy (grant 657227).
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{biblio}
