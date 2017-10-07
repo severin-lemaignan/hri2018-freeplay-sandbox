@@ -267,7 +267,7 @@ little, the task is fundamentally a face-to-face, spatially delimited,
 interaction, and as such simplifies the data collection. For instance, during
 our dataset acquisition campaign (120 children, more than 45h of footage), the
 children's faces were automatically detected in 98\% of the recorded frames (see
-Section~\ref{sec|dataset}).
+Section~\ref{sec:dataset}).
 
 
 
@@ -303,25 +303,25 @@ Section~\ref{sec|dataset}).
 % (monitoring the other's actions, discussing and agreeing on joint actions,
 % supportive/antagonistic behaviours, etc.).
 
-\paragraph{Socio-cognitive framing of the task}
-
-\todo{Very much unfinished section.}
-focus on abstract socio-cognitive facets (robot
-perception and manipulation are simplified); well suited for qualitative and
-quantitative analysis using metrics like Słowinski’s Individual Motor Signature
-(for behavioural alignment), Anderson's~\cite{anderson2004social} coding of children’s free-play
-interactions, with-me-ness (for assessment of co-engagment).
-
-carefully framed: as far as possible, they necessitate only the cognitive
-capabilities that they evidence (e.g. if they evidence a purely socio-linguistic
-mechanism, they will not mandate complex action capabilities – they may benefit
-from it, though),
-
-This point is especially important as it allows an incremental path: a robot
-should be able to tackle one or several of these task independently of the
-others, and a research team may progressively extend their cognitive models to
-incorporate more and more of the cognitive capabilities required by the robot to
-address all of the tasks.
+%\paragraph{Socio-cognitive framing of the task}
+%
+%\todo{Very much unfinished section.}
+%focus on abstract socio-cognitive facets (robot
+%perception and manipulation are simplified); well suited for qualitative and
+%quantitative analysis using metrics like Słowinski’s Individual Motor Signature
+%(for behavioural alignment), Anderson's~\cite{anderson2004social} coding of children’s free-play
+%interactions, with-me-ness (for assessment of co-engagment).
+%
+%carefully framed: as far as possible, they necessitate only the cognitive
+%capabilities that they evidence (e.g. if they evidence a purely socio-linguistic
+%mechanism, they will not mandate complex action capabilities – they may benefit
+%from it, though),
+%
+%This point is especially important as it allows an incremental path: a robot
+%should be able to tackle one or several of these task independently of the
+%others, and a research team may progressively extend their cognitive models to
+%incorporate more and more of the cognitive capabilities required by the robot to
+%address all of the tasks.
 
 \subsection{Applications}
 \label{sec:applications}
@@ -334,8 +334,9 @@ These advantages combined with the openness of the task proposed make this setup
 
 \paragraph{Child-Robot Interaction}
 \label{ssec|CRI}
+
 This free-play sandbox provides the opportunity to explore child-robot
-interactions in this open-real world environment as shown in Figure
+interactions in this open, real world environment as shown in Figure
 \ref{fig|freeplay}. 
 
 Depending of the focus of the study, two modes of control for the robot are
@@ -372,16 +373,17 @@ extracted and used on a robot.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Task Implementation}
+\section{Implementation}
 \label{sec:impl}
 
-The sandbox is implemented using mainly two frameworks: Qt's QML and
-\emph{QtQuick}\footnote{\url{http://doc.qt.io/qt-5/qmlapplications.html}}
-for the graphical interface of the game, and the \emph{Robot Operating System}
-(ROS) for the modular implementation of the data processing and behaviour
-generation pipelines. The graphical interface interacts with the decisional
-pipeline over a bidirectional QML-ROS bridge that we have developed for that
-purpose\footnote{Source code: \texttt{[hidden for blind review]}}.
+The software-side of the free-play sandbox is entirely
+open-source\footnote{Source code: \texttt{[hidden for blind review]}}. It is
+implemented using two main frameworks: Qt
+QML\footnote{\url{http://doc.qt.io/qt-5/qmlapplications.html}} for the graphical
+interface of the game, and the \emph{Robot Operating System} (ROS) for the
+modular implementation of the data processing and behaviour generation
+pipelines. The graphical interface interacts with the decisional pipeline over a
+bidirectional QML-ROS bridge that we have developed for that purpose.
 
 
 Figure~\ref{fig|architecture} presents the software architecture of the sandbox.
@@ -416,22 +418,25 @@ Figure~\ref{fig|architecture} presents the software architecture of the sandbox.
 \subsection{Interactive game} The interactive game
 (Fig.~\ref{fig|architecture}.1) is coded using QML, and displays a main
 background image on top of which items (animals, humans and objects) can be
-moved.  The children can also use a drawing mode to create coloured strokes on a
+moved. The children can also use a drawing mode to create coloured strokes on a
 layer between the background and the items, which adds another layer of
-unconstrained interaction to the game (eg. Figure~\ref{fig|sandbox}. The game
+unconstrained interaction to the game (Figure~\ref{fig|sandbox}). The game
 exposes the image of the background, the drawings, and the positions of the
-objects as a TF frame.
+objects as ROS TF frames.
 
-\subsection{Sensors} Two RGB-D cameras are mounted at fixed positions on the
-Sandtray frame, each facing a child. This fixed position of the cameras allows
-the extraction of social features such as head pose, eye gaze, pointing and body
-posture, all described in a general coordinate system available to each software
-node. In addition to the image, the cameras posses a microphone to record the
-auditory aspect of the interaction. One node per camera
-(Fig.~\ref{fig|architecture}.2) outputs on dedicated topics the audio and video
-streams.
+\subsection{Sensing} Two Intel RealSense SR300 RGB-D cameras are mounted at
+fixed positions on the sandtray frame, with custom designed 3D-printed brackets
+that ensure that the cameras are oriented towards the children's face. Because
+the cameras are rigidly mounted onto the sandtray's frame, their accurate
+geometric transformations with respect to the sandtray screen are known.
+Combined with hardware calibration, it allows for accurate localisation of the
+children and in particular, children's faces. In addition to the images, both
+cameras can perform stereo audio recording. One ROS node per camera
+(Fig.~\ref{fig|architecture}.2) publishes on dedicated topics the audio and video streams.
 
-\todo{briefly present ROS pipeline for sensors}
+A third `external' (and non-calibrated) camera is usually used as well to record
+the environment of the experiment with a wider angle (\emph{environment camera}
+in Figure~\ref{fig|freeplay}).
 
 \subsection{Robot Control} As stated in section~\ref{ssec|CRI}, a robot
 (Fig.~\ref{fig|architecture}.9) can act as play partner instead of one of the
@@ -478,17 +483,26 @@ identical representation of the state of the game on an other application which
 can be used on a tablet for example. The wizard can drag the objects in a
 similar fashion as what the child would do on the Sandtray, and on the release,
 the robot executes the dragging motion on the Sandtray, moving an object to a
-new location. The source code can easily modify to add new specific buttons to
+new location. The source code can be easily modified to add new specific buttons to
 execute other actions, such as having the robot talk to the child.
 
-\todo{Should I add more in the WoZ GUI in the code side? It's fairly simple in the
-current implementation}
+%\todo{Should I add more in the WoZ GUI in the code side? It's fairly simple in the
+%current implementation}
 
 \subsection{Experiment Manager}
 
-A web interface (Fig.~\ref{fig|architecture}.10) can be used by the experimenter
-to manage the meta parameters of the interaction: log data on the subjects,
-start-stop, select a task, manage data recording...
+We have developed as well a dedicated, web-based, interface can be used by the experimenter
+to manage the whole experiment and data acquisition procedure
+(Fig.~\ref{fig|architecture}.10). This interface ensures that all the required
+software nodes are running, allow the experimenter to check the status and, if
+needed, to start/stop/restart any of them. It also help managing large data
+collection campaigns by providing a convenient web interface (usually used by
+the experimenter on a tablet) to record the demographics, resetting the game
+interface after each session, and automatically enforcing the acquisition
+protocol (see Table~\ref{tab|protocol}).
+
+This interface has been extensively used to acquire the dataset that we present at
+Section~\ref{sec:dataset}.
 
 
 %
@@ -645,13 +659,16 @@ touchscreen & background drawing (RGB)               \\
 
 \paragraph{Face and body pose analysis}
 
-Online processing can be done on the images obtained from the camera. Using new
-deep learning libraries such as CMU's OpenPose~\cite{cao2017realtime} and
-DLib~(ADDREF), posture and facial landmarks can be obtained online. As the
-position of the camera, a potential robot and any object on the game is known,
-this landmarks can be mapped to high level behaviours such as poiting or looking
-at an object. Additional analysis can be done on the facial landmarks to other
-social states, such as main emotion felt by the child.
+Off-line post-processing can be done on the images obtained from the cameras. We
+rely on the CMU OpenPose library~\cite{cao2017realtime} to extract for both
+children the upper-body skeleton, 70 facial landmarks including the pupil
+position, as well as the hands' skeleton (when visible).
+
+Further processing is possible: As the position of the
+camera, a potential robot and any object on the game is known, this landmarks
+can be mapped to high level behaviours such as pointing or looking at an object.
+Additional analysis can be done on the facial landmarks to other social states,
+such as main emotion felt by the child.
 
 \paragraph{Audio processing}
 
@@ -665,9 +682,7 @@ textual information on the requests and comments produced by the child.
 
 \paragraph{Game interactions analysis}
 
-\todo{check section title}
-
-Game features are also produced by the different nodes involved in the analaysis
+Game features are also produced by the different nodes involved in the analysis
 of the game. The Playground segmentation produce a map of the regions based on
 the colour which can be used with the positions of the animal to identify from
 which zone to which zone an animal has been moved. The relative position of
@@ -798,9 +813,8 @@ community to evaluate given interaction policies.
 A detailed description of the dataset is outside of the scope of this paper, and
 we only provide hereafter cursory informations on the dataset. Specific details
 regarding the methodology and the acquisition procedure can be found on the
-dataset website: \url{https://freeplay-sandbox.github.io/}. The dataset is open and accessible
-to any interested researcher.
-\todo{Probably add "an anonymised version of the dataser is open..." Reviewers might be concerned about ethics}
+dataset website\footnote{\url{https://freeplay-sandbox.github.io/}}. The dataset is open
+and accessible to any interested researcher, subject to adequate ethical clearance.
 
 In total, 120 children were recorded for a total duration of 45 hours and 48
 minutes of data collection. These 120 children (age 4 to 8) were split into two
@@ -832,19 +846,22 @@ facial social features.
     \label{fig|durations}
 \end{figure}
 
-\todo{Check paragrap}
-Figure \ref{fig|durations} presents an histogram of the durations of the
-interactions for the two conditions. In the child-child condition, we can
-observe two peaks, one around 10 to 15 minutes and one at 40 minutes, the
-maximum allowed by the protocol. This indicates that the task is engaging for
-the children and encourage them to play with each other for a consequent amount
-of time and provides opportunities to display the social behaviours we aimed to
-observe with it. In the child-robot condition, the peak at 40 minutes does not
-appear (3 children play alongside the robot until the end of the time
-allocated). The non-social robot appears to be less engaging than another child
-but still elicit plays of an average duration of 19.2 minutes which both is
-long enough to display social behaviours, and leaves us space for improvements
-if the robot policy is more social.
+Figure~\ref{fig|durations} presents an histogram of the durations of the
+interactions for the two baselines. The distribution of the child-child
+interaction durations shows that (1) all children
+engage easily and for non-trivial amounts of time with the task; (2) the task
+leads to a wide range of level of commitment, which is desirable: it supports
+the claim that the free-play sandbox is an effective paradigm to observe a range
+of different social behaviours; (3) long interactions (>30 min) can result,
+which is especially desirable to study social dynamics.
+
+In contrast, and notwithstanding the smaller number of participants, the
+distribution of the child-robot interaction durations shows these interactions are
+generally shorter. This is expected as the robot was explicitly programmed not
+to interact with the children, resulting in a rather boring (and at time,
+awkward) situation where the child and the robot where playing side-by-side --
+in some case for rather long periods of time -- without interacting at all.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
